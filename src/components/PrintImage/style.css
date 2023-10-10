@@ -1,0 +1,8 @@
+.guessImage {
+    width: 600px;
+    filter: brightness(0);
+}
+.light {
+    filter: brightness(1);
+    transition: filter 0.2s ease-in-out;
+}
