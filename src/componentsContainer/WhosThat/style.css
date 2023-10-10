@@ -1,0 +1,19 @@
+.screen1_info {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.screen1_game {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.screen1_game input:nth-child(2) {
+    padding-right: 2000px;
+    display: flex;
+    align-items: center;
+}

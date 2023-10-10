@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import PrintImage from "../../components/PrintImage"
 import { findPokemon } from "../../utils/pokeApi"
 import InputAndButton from "../../components/InputAndButton"
+import "./style.css"
 
 const WhosThat = () => {
 
@@ -20,8 +21,8 @@ const WhosThat = () => {
         findPokemon(randomPokemonId())
             .then(data => setPokemon(data))
             .catch(err => console.log(err))
-            .finally(() => setLoading(false) )
-    },[])
+            .finally(() => setLoading(false))
+    }, [])
 
     const tryPokemonNameButton = (pokemonName) => {
         if (pokemonName === pokemon.name) {
@@ -44,16 +45,17 @@ const WhosThat = () => {
 
     return (
         <>
-            <h2>WhosThat</h2>
-            <h4>{pokemon.name}</h4>
-            <h3>Score: {score.current}</h3>
+            <div className="screen1_info">
+                <h2>Who's that Pokemon?</h2>
+                <InputAndButton handleButton={tryPokemonNameButton} />
+            </div>
             {loading ? (
                 <h4>Cargando...</h4>
             ) : (
-                <div>
+                <div className="screen1_game">
                     <PrintImage image={pokemon?.sprites?.front_default} dark={!win} />
-                    <InputAndButton handleButton={tryPokemonNameButton} />
-                    {win && <button onClick={nextPokemon}>Next</button>}
+                    <h3>Score: {score.current}</h3>
+                    {win ? <button onClick={nextPokemon}>Next</button> : <button>I don't know!</button>}
                 </div>
             )}
         </>

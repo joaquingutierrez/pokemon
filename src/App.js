@@ -1,9 +1,9 @@
 import './App.css';
-import { WhosThat } from './componentsContainer';
+import { Pokedex, WhosThat } from './componentsContainer';
 
 function App() {
   return (
-    <WhosThat />
+    <Pokedex screen1={<WhosThat />} />
   );
 }
 
