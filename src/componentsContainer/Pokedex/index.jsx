@@ -1,6 +1,40 @@
+import { useEffect } from "react"
 import "./style.css"
 
 const Pokedex = ({ screen1, screen2 }) => {
+
+    useEffect(() => {
+        const directionButtons = document.getElementById("directionButtons")
+        directionButtons.addEventListener("mousedown", (event) => {
+            const x = event.clientX - directionButtons.getBoundingClientRect().left;
+            const y = event.clientY - directionButtons.getBoundingClientRect().top;
+            if (x < 50) {
+                directionButtons.classList.add("direction_rotate_left")
+                window.addEventListener("mouseup", () => {
+                    return directionButtons.classList.remove("direction_rotate_left")
+                })
+            }
+            if (x > 115) {
+                directionButtons.classList.add("direction_rotate_right")
+                window.addEventListener("mouseup", () => {
+                    return directionButtons.classList.remove("direction_rotate_right")
+                })
+            }
+            if (y < 50) {
+                directionButtons.classList.add("direction_rotate_up")
+                window.addEventListener("mouseup", () => {
+                    return directionButtons.classList.remove("direction_rotate_up")
+                })
+            }
+            if (y > 115) {
+                directionButtons.classList.add("direction_rotate_down")
+                window.addEventListener("mouseup", () => {
+                    return directionButtons.classList.remove("direction_rotate_down")
+                })
+            }
+        })
+    }, [])
+
     return (
         <section id="pokedex">
             <div className="pokedex_left">
@@ -26,11 +60,20 @@ const Pokedex = ({ screen1, screen2 }) => {
                     </div>
                 </div>
                 <div className="pokedex_left_buttons_container">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div className="direction_buttons"></div>
+                    <div className="pokedex_left_tiny_buttons_container">
+                        <div className="pokedex_blue_button button_shadow pokedex_buttons"></div>
+                        <div className="pokedex_select_button bg_green button_shadow pokedex_buttons"></div>
+                        <div className="pokedex_select_button bg_orange button_shadow pokedex_buttons"></div>
+                    </div>
+                    <div className="pokedex_large_button"></div>
+                    <div className="direcion_buttons_container">
+                        <div id="directionButtons" className="direction_buttons button_shadow">
+                            <div className="pokedex_direction_arrow direction_up"></div>
+                            <div className="pokedex_direction_arrow direction_right"></div>
+                            <div className="pokedex_direction_arrow direction_down"></div>
+                            <div className="pokedex_direction_arrow direction_left"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="pokedex_hinge"></div>
