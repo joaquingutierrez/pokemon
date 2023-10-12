@@ -1,7 +1,10 @@
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import "./style.css"
+import { PokedexContext } from "../../components/context"
 
 const Pokedex = ({ screen1, screen2 }) => {
+
+    const { tryPokemonNameButton, nextPokemon } = useContext(PokedexContext)
 
     useEffect(() => {
         const directionButtons = document.getElementById("directionButtons")
@@ -35,6 +38,15 @@ const Pokedex = ({ screen1, screen2 }) => {
         })
     }, [])
 
+    const handleBlueButton = () => {
+        tryPokemonNameButton()
+    }
+    const handleGreenButton = () => {
+        nextPokemon()
+    }
+    const handleOrangeButton = () => {
+        console.log("boton naranja")
+    }
     return (
         <section id="pokedex">
             <div className="pokedex_left">
@@ -61,9 +73,9 @@ const Pokedex = ({ screen1, screen2 }) => {
                 </div>
                 <div className="pokedex_left_buttons_container">
                     <div className="pokedex_left_tiny_buttons_container">
-                        <div className="pokedex_blue_button button_shadow pokedex_buttons"></div>
-                        <div className="pokedex_select_button bg_green button_shadow pokedex_buttons"></div>
-                        <div className="pokedex_select_button bg_orange button_shadow pokedex_buttons"></div>
+                        <div className="pokedex_blue_button button_shadow pokedex_buttons" onClick={handleBlueButton}></div>
+                        <div className="pokedex_select_button bg_green button_shadow pokedex_buttons" onClick={handleGreenButton}></div>
+                        <div className="pokedex_select_button bg_orange button_shadow pokedex_buttons" onClick={handleOrangeButton}></div>
                     </div>
                     <div className="pokedex_large_button"></div>
                     <div className="direcion_buttons_container">

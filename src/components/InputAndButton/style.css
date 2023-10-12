@@ -15,12 +15,3 @@
 .screen1_game_input input:focus-visible {
     outline: 0;
 }
-.screen1_game_input button {
-    height: 2rem;
-    border-radius: 20px;
-    background-color: #fc1a56;
-    border: 2px solid black;
-}
-.screen1_game_input button:active {
-    transform: scale(0.95);
-}

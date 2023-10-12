@@ -1,64 +1,33 @@
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useContext } from "react"
 
 import PrintImage from "../../components/PrintImage"
-import { findPokemon } from "../../utils/pokeApi"
 import InputAndButton from "../../components/InputAndButton"
 import "./style.css"
+import { PokedexContext } from "../../components/context"
 
 const WhosThat = () => {
 
-    const [pokemon, setPokemon] = useState({})
-    const [win, setWin] = useState(false)
-    const [loading, setLoading] = useState(true)
-    const score = useRef(0)
-
-    const randomPokemonId = (from = 0, until = 150) => {
-        return parseInt(from + Math.random() * until)
-    }
-
-    const fetchPokemon = useCallback(() => {
-        setLoading(true)
-        findPokemon(randomPokemonId())
-            .then(data => setPokemon(data))
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
-    }, [])
-
-    const tryPokemonNameButton = (pokemonName) => {
-        if (pokemonName === pokemon.name) {
-            setWin(true)
-            score.current++
-            console.log(score)
-            return console.log("Ganaste")
-        }
-        console.log("perdiste")
-    }
-
-    const nextPokemon = () => {
-        setWin(false)
-        fetchPokemon()
-    }
-
-    useEffect(() => {
-        fetchPokemon()
-    }, [fetchPokemon])
+    const { pokemon, win, loading, score } = useContext(PokedexContext)
 
     return (
-        <>
+        <section className="screen1">
             <div className="screen1_info">
                 <h2>Who's that Pokemon?</h2>
-                <InputAndButton handleButton={tryPokemonNameButton} />
+                <InputAndButton />
+                <h3>Score: {score.current}</h3>
             </div>
             {loading ? (
                 <h4>Cargando...</h4>
             ) : (
                 <div className="screen1_game">
                     <PrintImage image={pokemon?.sprites?.front_default} dark={!win} />
-                    <h3>Score: {score.current}</h3>
-                    {win ? <button onClick={nextPokemon}>Next</button> : <button>I don't know!</button>}
                 </div>
             )}
-        </>
+            <div className="buttonLabel">
+                {win ? <h4>Next</h4> : <h4>Don't know!</h4>}
+                <div className="tiny_green"></div>
+            </div>
+        </section>
     )
 }
 

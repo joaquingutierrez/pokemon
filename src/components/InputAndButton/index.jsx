@@ -1,11 +1,9 @@
 import "./style.css"
 
-const InputAndButton = ({handleButton}) => {
-    let name = ""
+const InputAndButton = () => {
     return (
         <div className="screen1_game_input">
-            <input type="text" name="name" id="name" onKeyDown={(e) => {if (e.key === "Enter") handleButton(name)}} onChange={(e)=>name=e.target.value} />
-            <button onClick={()=>handleButton(name)}>Send</button>
+            <input type="text" name="name" autoComplete="off" id="nameInput" placeholder="Pokemon name..." />
         </div>
     )
 }
