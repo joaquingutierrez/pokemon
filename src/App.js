@@ -1,5 +1,5 @@
 import './App.css';
-import PokedexProvider from './components/context';
+import PokedexProvider from './context';
 import { Pokedex, WhosThat } from './componentsContainer';
 
 function App() {

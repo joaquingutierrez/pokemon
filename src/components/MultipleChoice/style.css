@@ -1,0 +1,18 @@
+.multipleChoice_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+.multipleChoice_optionContainer {
+    width: 45%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.multipleChoice_optionTitle {
+    margin: 10px 5px;
+}
+.multipleChoice_optionActive {
+    background-color: brown;
+}
