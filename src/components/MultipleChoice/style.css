@@ -16,3 +16,9 @@
 .multipleChoice_optionActive {
     background-color: brown;
 }
+
+@media (max-width: 400px) {
+    .multipleChoice_container {
+        gap: 0;
+    }
+}

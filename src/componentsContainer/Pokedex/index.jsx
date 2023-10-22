@@ -10,21 +10,26 @@ const Pokedex = ({ screen1, screen2 }) => {
     const handleMouseDown = (event) => {
         setIsMouseDown(true)
         const directionButtons = document.getElementById("directionButtons")
-        const x = event.clientX - directionButtons.getBoundingClientRect().left;
-        const y = event.clientY - directionButtons.getBoundingClientRect().top;
-        if (x < 50) {
+        const rect = directionButtons.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const leftThreshold = 0.30;
+        const rightThreshold = 0.70;
+        const topThreshold = 0.30;
+        const bottomThreshold = 0.70;
+        if (x < leftThreshold) {
             directionButtons.classList.add("direction_rotate_left")
             handleHorizontalButtons()
         }
-        if (x > 115) {
+        if (x > rightThreshold) {
             directionButtons.classList.add("direction_rotate_right")
             handleHorizontalButtons()
         }
-        if (y < 50) {
+        if (y < topThreshold) {
             directionButtons.classList.add("direction_rotate_up")
             handleVerticalButtons()
         }
-        if (y > 115) {
+        if (y > bottomThreshold) {
             directionButtons.classList.add("direction_rotate_down")
             handleVerticalButtons()
         }
@@ -99,10 +104,10 @@ const Pokedex = ({ screen1, screen2 }) => {
                     </div>
                 </div>
             </div>
-            <div className="pokedex_hinge"></div>
+{/*             <div className="pokedex_hinge"></div>
             <div className="pokedex_right">
 
-            </div>
+            </div> */}
         </section>
     )
 }

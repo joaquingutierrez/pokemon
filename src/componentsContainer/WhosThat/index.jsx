@@ -11,21 +11,23 @@ const WhosThat = () => {
 
     return (
         <section className="screen1">
-            <div className="screen1_info">
-                <h2>Who's that Pokemon?</h2>
-                <MultipleChoice options={pokemon.map(pokemon => pokemon.name)} />
-                <h3>Score: {score}</h3>
-            </div>
-            {loading ? (
-                <h4>Cargando...</h4>
-            ) : (
-                <div className="screen1_game">
-                    <PrintImage image={answer?.sprites?.front_default} dark={!win} />
-                </div>
-            )}
+            <h2 className="screen1_title">Who's that Pokemon?</h2>
+            <h3 className="screen1_score">Score: {score}</h3>
             <div className="buttonLabel">
                 {win ? <h4>Next</h4> : <h4>Don't know!</h4>}
                 <div className="tiny_green"></div>
+            </div>
+            <div className="screen1_gameContent">
+                <div className="screen1_info">
+                    <MultipleChoice options={pokemon.map(pokemon => pokemon.name)} />
+                </div>
+                {loading ? (
+                    <h4>Cargando...</h4>
+                ) : (
+                    <div className="screen1_game">
+                        <PrintImage image={answer?.sprites?.front_default} dark={!win} />
+                    </div>
+                )}
             </div>
         </section>
     )
