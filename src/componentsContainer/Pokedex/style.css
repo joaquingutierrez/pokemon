@@ -45,8 +45,8 @@
     height: 40px;
     border: 2px solid #98eff2;
     border-radius: 50%;
-    top: 10px;
-    left: 20px;
+    top: 1%;
+    left: 20%;
     transform: rotateZ(45deg);
 }
 .pokedex_camera_reflex2 {
@@ -63,7 +63,7 @@
     position: absolute;
     top: 0%;
     left: 50%;
-    transform: translate(-50%,0%);
+    transform: translate(-50%, 0%);
     width: 90%;
     height: 90%;
     border-radius: 60px;
@@ -205,6 +205,7 @@
     padding-bottom: 20%;
     border-radius: 50px;
     background-color: #01aaf5;
+    z-index: 2;
 }
 .pokedex_select_button {
     width: 20%;
@@ -229,6 +230,7 @@
     height: 100%;
     border-radius: 10px;
     background-color: #f9ee60;
+    z-index: 2;
 }
 .direction_buttons {
     width: 100%;
@@ -277,6 +279,7 @@
     height: 170px;
     margin: auto;
     filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.75));
+    z-index: 2;
 }
 .direction_rotate_up {
     transform: rotateX(15deg);
@@ -302,6 +305,15 @@
     }
     .pokedex_frame1 {
         height: 55%;
+    }
+    .pokedex_header_shadow {
+        height: 150px;
+        top: 15px;
+    }
+    .pokedex_camera_frame_shadow_container {
+        bottom: -112px;
+        width: 147%;
+        padding-bottom: 160%;
     }
 }
 
@@ -334,6 +346,26 @@
         width: 25%;
         padding-bottom: 7.5%;
     }
+    .pokedex_header_shadow {
+        height: 110px;
+        top: 11px;
+    }
+    .pokedex_camera_frame_shadow_container {
+        bottom: -102px;
+        width: 151%;
+        padding-bottom: 156%;
+    }
+    .pokedex_camera_frame_shadow {
+        border-width: 4px;
+    }
+    .pokedex_camera_reflex1 {
+        width: 10px;
+        height: 20px;
+    }
+    .pokedex_camera_reflex2 {
+        width: 5px;
+        height: 5px;
+    }
 }
 @media (max-width:400px) {
     .pokedex_header {
@@ -343,5 +375,19 @@
         width: 40px;
         padding-bottom: 40px;
         border-width: 11px;
+    }
+    .pokedex_camera_reflex1 {
+        width: 5px;
+        height: 10px;
+    }
+    .pokedex_camera_reflex2 {
+        width: 2.5px;
+        height: 2.5px;
+    }
+    .pokedex_camera_shadow {
+        transform: translate(-52%, 9%);
+        width: 75%;
+        height: 66%;
+        box-shadow: 1px 6px 0 5px #00b9d6;
     }
 }
