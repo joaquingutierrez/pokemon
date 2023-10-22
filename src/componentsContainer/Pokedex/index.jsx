@@ -68,8 +68,17 @@ const Pokedex = ({ screen1, screen2 }) => {
             <div className="pokedex_left">
                 <div className="pokedex_header">
                     <div className="pokedex_camera">
+                        <div className="pokedex_camera_reflex1"></div>
+                        <div className="pokedex_camera_reflex2"></div>
+                        <div className="pokedex_camera_shadow"></div>
+                        <div className="pokedex_camera_frame_shadow_container">
+                            <div className="pokedex_camera_frame_shadow"></div>
+                        </div>
                     </div>
                 </div>
+                <div className="pokedex_header_shadow"></div>
+                <div className="pokedex_verticalShadow pokedex_verticalShadow_left"></div>
+                <div className="pokedex_verticalShadow pokedex_verticalShadow_right"></div>
                 <div className="pokedex_frame1">
                     <div className="pokedex_circle_container">
                         <div className="pokedex_circle"></div>
@@ -104,7 +113,7 @@ const Pokedex = ({ screen1, screen2 }) => {
                     </div>
                 </div>
             </div>
-{/*             <div className="pokedex_hinge"></div>
+            {/*             <div className="pokedex_hinge"></div>
             <div className="pokedex_right">
 
             </div> */}
